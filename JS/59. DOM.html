@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>JS CreateElement Demo</title>
+    <style>
+        .style1{
+            background-color: blue;
+            height: 500px;
+            width: 600px;
+        }
+        .style2{
+            background-color: green;
+            height: 300px;
+            width: 400px;
+            margin-left: 100px;
+            margin-top: 100px;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        let div = document.createElement('div');
+        div.id = 'content';
+        div.innerHTML = '<p>inside parent div</p>';
+        div.classList.add("style1");
+        let div1 = document.createElement('div');
+        div1.innerHTML = '<p id="another">inside child div</p>';
+        div1.classList.add("style2");
+        div.appendChild(div1)
+        document.body.appendChild(div);
+        alert(document.getElementById('another').innerHTML)
+    </script>
+</body>
+</html>

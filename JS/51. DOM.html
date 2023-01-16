@@ -1,0 +1,36 @@
+<html>   
+   <head>
+      <title> Document Title </title>      
+      <script type = "text/javascript">
+         <!--
+            function myFunc() {
+               var ret = document.getElementsByTagName("title");
+               alert("Document Title : " + ret[0].text);
+               
+               var ret = document.getElementById("mydiv");
+               alert(ret.innerHTML);
+            }
+            function anotherFunc() {         
+               var ret = document.getElementById("mydiv");
+               ret.innerHTML += "<h2>I have added text</h2>";
+            }
+         //-->
+      </script>      
+   </head>
+   <body>
+      
+      <div id="mydiv">
+         <h1 id="heading">This is main title</h1>
+      </div>
+      <p>Click the following to see the result:</p>
+      
+      <form id = "form1" name = "FirstForm">
+         <input type = "button" value = "Click Me" onclick = "myFunc();" />
+         <input type = "button" value = "Cancel">
+      </form>
+      
+      <form d = "form2" name = "SecondForm">
+         <input type="button" value="Don't Click Me" onclick="anotherFunc();"/>
+      </form>      
+   </body>
+</html>

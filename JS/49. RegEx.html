@@ -1,0 +1,17 @@
+<html>
+   <head>
+      <title>JavaScript RegExp test Method</title>
+   </head>
+   
+   <body>
+      <script type = "text/javascript">
+         function validateEmail(email) {
+            //var re = /\S+@\S+w{2}$\.\w{2}/;
+            var re = new RegExp('[a-z0-9]+@[a-z]+\.[a-z]{2}\.[a-z]{2}');
+            return re.test(email);
+         }
+         document.write("<br/>" + validateEmail('rodgers@trai.co.tz'));
+         document.write("<br/>" + validateEmail('ali@anystring'));     
+      </script>
+   </body>
+</html>

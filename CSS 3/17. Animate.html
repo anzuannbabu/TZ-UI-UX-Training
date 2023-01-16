@@ -1,0 +1,63 @@
+<html>
+	<head>
+		<style>
+.hover {
+  background: #fad29c;
+}
+.hover::before {
+  content: "Before";
+}
+.hover:focus, .hover:hover {
+  background: #fff;
+}
+.hover:focus::before, .hover:hover::before {
+  content: "Hovered";
+}
+.hover:focus ~ .hover, .hover:hover ~ .hover {
+  background: #6ef1cd;
+}
+.hover:focus ~ .hover::before, .hover:hover ~ .hover::before {
+  content: "After";
+}
+
+.container:not(:focus-within):not(:hover) .hover {
+  background: #f7ffb5;
+}
+.container:not(:focus-within):not(:hover) .hover::before {
+  content: "Hover Me";
+}
+
+body {
+  justify-content: center;
+  align-items: center;
+  background: #fdfdff;
+  min-height: 100vh;
+  display: flex;
+}
+
+.container {
+  padding: 0 2rem;
+  display: flex;
+  width: 100%;
+}
+
+.hover {
+  text-decoration: none;
+  padding: 4rem 2rem;
+  text-align: center;
+  font-weight: 700;
+  transition: 0.5s;
+  flex: 1 1 25%;
+  color: #000;
+}
+</style>
+<body>
+<div class="container">
+  <a href="#" class="hover"></a>
+  <a href="#" class="hover"></a>
+  <a href="#" class="hover"></a>
+  <a href="#" class="hover"></a>
+  <a href="#" class="hover"></a>
+</div>
+</body>
+</html>

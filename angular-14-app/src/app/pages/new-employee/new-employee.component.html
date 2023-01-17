@@ -1,0 +1,84 @@
+ <!-- start page title -->
+ <div class="row">
+  <div class="col-12">
+      <div class="page-title-box">
+          <h4 class="page-title"  *ngIf="crud=='create';else showUpdatepageTitle">Employee Registration</h4>
+          <ng-template #showUpdatepageTitle>
+            <h4 class="page-title">Employee Modification</h4>
+          </ng-template>
+          <div class="page-title-right">
+              <ol class="breadcrumb m-0">
+                  <li class="breadcrumb-item"><a href="javascript: void(0);">Shreyu</a></li>
+                  <li class="breadcrumb-item"><a href="employee-list.html">Employees</a></li>
+                  <li class="breadcrumb-item active">Register</li>
+              </ol>
+          </div>
+      </div>
+  </div>
+</div>
+<!-- end page title -->
+
+
+
+
+
+<div class="row">
+  <div class="col-lg-12 col-sm-12 col-md-12">
+      <div class="card">
+          <div class="card-body">
+              <h4 class="header-title mt-0 mb-1" *ngIf="crud=='create';else showUpdateHeaderTitle">New Employee Form</h4>
+              <ng-template #showUpdateHeaderTitle>
+                <h4 class="page-title">Update Employee Form</h4>
+              </ng-template>
+              <p class="sub-header" *ngIf="crud=='create';else showUpdatePara">Register New Employee Here.</p>
+              <ng-template #showUpdatePara>
+                <p class="sub-header">Update Employee Details Here.</p>
+              </ng-template>
+              <form [formGroup]="empForm" (ngSubmit)="onSave()">
+                  <div class="mb-3">
+                      <label class="form-label" for="employee-name">Name</label>
+                      <input type="text" id="employee-name" formControlName="empname" class="form-control" placeholder="Name">
+                      <app-validation-messages *ngIf="submitted" [formGroup]="empForm" controlName="empname"></app-validation-messages>
+                  </div>
+                  <!-- <div class="mb-3">
+                      <label class="form-label" for="employee-number">Employee No.</label>
+                      <input type="text" id="employee-number" formControlName="empname" class="form-control" placeholder="Employee No.">
+                  </div> -->
+                  <div class="mb-3">
+                      <label class="form-label">Join Date</label>
+                      <input type="text" id="basic-datepicker" class="form-control" formControlName="dateofjoin" placeholder="Basic datepicker">
+                      <app-validation-messages [formGroup]="empForm" controlName="dateofjoin"></app-validation-messages>
+                  </div>
+                  <div class="mb-3">
+                      <label class="form-label" for="employee-job">Job</label>
+                      <input type="text" id="employee-job" class="form-control" formControlName="job" placeholder="Job">
+                      <app-validation-messages [formGroup]="empForm" controlName="job"></app-validation-messages>
+                  </div>
+                  <div class="mb-3">
+                      <label class="form-label" for="employee-salary">Salary</label>
+                      <input type="number" min="0" id="employee-salary" class="form-control" formControlName="salary" placeholder="Salary">
+                      <app-validation-messages [formGroup]="empForm" controlName="salary"></app-validation-messages>
+                  </div>
+                  <div class="mb-3" *ngIf="crud=='create'">
+                      <label class="form-label" for="employee-salary">Profile Picture</label>
+                      <input type="file" id="employee-salary" (change)="uploadFile($event)" class="form-control" formControlName="profileImage" placeholder="profileImage">
+                      <app-validation-messages [formGroup]="empForm" controlName="profileImage"></app-validation-messages>
+                  </div>
+
+                  <hr>
+                  <div class="d-flex justify-content-end">
+                      <button class="btn btn-primary" >Submit</button>
+                  </div>
+
+
+
+              </form>
+
+          </div>
+
+      </div> <!-- end card -->
+  </div> <!-- end col -->
+
+
+</div>
+<!-- end row -->

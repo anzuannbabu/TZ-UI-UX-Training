@@ -1,0 +1,204 @@
+<!-- start page title -->
+<!-- start page title -->
+<div class="row">
+  <div class="col-12">
+    <div class="page-title-box">
+      <h4 class="page-title">Dashboard</h4>
+      <div class="page-title-right">
+        <ol class="breadcrumb m-0">
+          <li class="breadcrumb-item"><a href="/">Shreyu</a></li>
+          <li class="breadcrumb-item active">Dashboard</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end page title -->
+<!-- end page title -->
+
+<!-- stats + charts -->
+<div class="row">
+  <div class="col-xl-3">
+    <div class="card">
+      <div class="card-body p-0">
+        <div class="p-3">
+          <div class="dropdown float-end">
+            <a
+              href="#"
+              class="dropdown-toggle arrow-none text-muted"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <i class="uil uil-ellipsis-v"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-end">
+              <!-- item-->
+              <a href="javascript:void(0);" class="dropdown-item">
+                <i class="uil uil-refresh me-2"></i>Refresh
+              </a>
+              <!-- item-->
+              <a href="javascript:void(0);" class="dropdown-item">
+                <i class="uil uil-user-plus me-2"></i>Add New
+              </a>
+              <div class="dropdown-divider"></div>
+              <!-- item-->
+              <a href="javascript:void(0);" class="dropdown-item text-danger">
+                <i class="uil uil-exit me-2"></i>Exit
+              </a>
+            </div>
+          </div>
+
+          <h5 class="card-title header-title mb-0">Overview</h5>
+        </div>
+
+        <!-- stat 1 -->
+        <div class="d-flex p-3 border-bottom">
+          <div class="flex-grow-1">
+            <h4 class="mt-0 mb-1 fs-22">121,000</h4>
+            <span class="text-muted">Total Visitors</span>
+          </div>
+          <i
+            data-feather="users"
+            class="align-self-center icon-dual icon-md"
+          ></i>
+        </div>
+
+        <!-- stat 2 -->
+        <div class="d-flex p-3 border-bottom">
+          <div class="flex-grow-1">
+            <h4 class="mt-0 mb-1 fs-22">21,000</h4>
+            <span class="text-muted">Total Product Views</span>
+          </div>
+          <i
+            data-feather="image"
+            class="align-self-center icon-dual icon-md"
+          ></i>
+        </div>
+
+        <!-- stat 3 -->
+        <div class="d-flex p-3 border-bottom">
+          <div class="flex-grow-1">
+            <h4 class="mt-0 mb-1 fs-22">$21.5</h4>
+            <span class="text-muted">Revenue Per Visitor</span>
+          </div>
+          <i
+            data-feather="shopping-bag"
+            class="align-self-center icon-dual icon-md"
+          ></i>
+        </div>
+
+        <a href="#" class="p-2 d-block text-end"
+          >View All <i class="uil-arrow-right"></i
+        ></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Recent orders -->
+  <div class="col-xl-9">
+    <div class="card">
+      <div class="card-body">
+        <a href="#" class="btn btn-primary btn-sm float-end">
+          <i class="uil uil-export me-1"></i> Export
+        </a>
+        <h5 class="card-title mt-0 mb-0 header-title">Recent Employees</h5>
+
+        <div class="table-responsive mt-4 mb-2">
+          <table class="table table-hover table-nowrap mb-0">
+            <thead>
+              <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Full Name</th>
+                <th>Profile</th>
+                <th scope="col">Job</th>
+                <th scope="col">Salary</th>
+                <th scope="col">Join Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let data of employees;let i = index;" >
+                <td>{{i+1}}</td>
+                <td>{{data?.empname}}</td>
+                <td>
+                  <img [src]="getProfileImage(data?.profilepic)" class="profile-avatar">
+                  <!-- <app-profile-preview [imgUrl]="data?.profilepic"></app-profile-preview> -->
+                </td>
+                <td>{{data?.job}}</td>
+                <td>{{data?.salary|currency:'INR'}}</td>
+                <td>{{data?.dateofjoin|date}}</td>
+                <!-- <td>
+                  <span class="badge badge-soft-warning py-1">Pending</span>
+                </td> -->
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+        <!-- end table-responsive-->
+      </div>
+      <!-- end card-body-->
+    </div>
+    <!-- end card-->
+  </div>
+  <!-- end col-->
+  <!-- ./Recent orders -->
+</div>
+<!-- row -->
+
+<div class="row">
+  <div class="col">
+    <div class="card">
+      <div class="card-body">
+          <div class="dropdown float-end">
+              <a href="#" class="dropdown-toggle arrow-none text-muted" data-bs-toggle="dropdown" aria-expanded="false">
+                  <i class="uil uil-ellipsis-v"></i>
+              </a>
+              <div class="dropdown-menu dropdown-menu-end">
+                  <!-- item-->
+                  <a href="javascript:void(0);" class="dropdown-item">
+                      Today
+                  </a>
+                  <!-- item-->
+                  <a href="javascript:void(0);" class="dropdown-item">
+                      7 Days
+                  </a>
+                  <!-- item-->
+                  <a href="javascript:void(0);" class="dropdown-item">
+                      15 Days
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <!-- item-->
+                  <a href="javascript:void(0);" class="dropdown-item">
+                      1 Months
+                  </a>
+                  <!-- item-->
+                  <a href="javascript:void(0);" class="dropdown-item">
+                      6 Months
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <!-- item-->
+                  <a href="javascript:void(0);" class="dropdown-item">
+                      1 Year
+                  </a>
+              </div>
+          </div>
+          <h5 class="card-title mb-0 header-title">Revenue</h5>
+
+          <app-dashboard-chart></app-dashboard-chart>
+      </div>
+  </div>
+  </div>
+</div>
+
+
+<!-- <div class="row">
+  <div class="col">
+    <div class="btn-group dropdown mt-2 me-1">
+
+      <img class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" src="http://localhost:8082/uploads/2021-06-00620undefined-1673593866386.jpeg" width="50" height="60" style="padding: 0;"  alt="">
+      <div class="dropdown-menu dropdown-lg p-3" style="">
+         <img src="http://localhost:8082/uploads/2021-06-00620undefined-1673593866386.jpeg" width="280" style="border:1px solid #dedede; padding:5px;" alt="">
+      </div>
+  </div>
+  </div>
+</div> -->
